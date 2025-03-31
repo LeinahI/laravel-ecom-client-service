@@ -13,7 +13,7 @@ const http = (baseUrl) => {
 };
 
 export default {
-  baseUrl: "http://localhost:8000",
+  baseUrl: import.meta.env.VITE_APP_AUTH_SERVICE_URL,
   endpoint: `/api`,
   login(params) {
     return http(this.baseUrl).post(`${this.endpoint}/login`, params);

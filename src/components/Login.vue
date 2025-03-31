@@ -83,23 +83,13 @@ export default {
         .then((response) => {
           const data = response.data;
 
-          /*  data.expires_in = new Date(
+          data.expires_in = new Date(
             Date.now() + data.expires_in
-          ).toISOString(); */
-
-          data.expires_in = new Date(Date.now() + data.expires_in)
-            .toLocaleString("en-CA", {
-              year: "numeric",
-              month: "2-digit",
-              day: "2-digit",
-              hour: "2-digit",
-              minute: "2-digit",
-              second: "2-digit",
-              hour12: false,
-            })
-            .replace(",", "");
-
+          ).toISOString();
+          
           localStorage.setItem("auth", JSON.stringify(data));
+
+          window.location.href = "/home";
         })
         .catch()
         .finally();
